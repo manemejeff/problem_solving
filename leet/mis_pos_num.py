@@ -36,8 +36,10 @@ from typing import List
 
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
+
         s = set(arr)
         quant = 0
+
         for i in range(1, 10010):
             if i not in s:
                 quant += 1
