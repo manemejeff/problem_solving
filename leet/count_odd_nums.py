@@ -30,26 +30,10 @@ Constraints:
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
 
-        if high == low:
-            return 1 if low % 2 != 0 else 0
-
-        dif = high - low
-        odds = 0
-        low_ones = low % 10
-        high_ones = high % 10
-        print(f'{dif=}, {odds=}, {low_ones=}, {high_ones=}')
-        if high_ones < low_ones:
-            high_ones += 10
-            dif -= 10
-        print(f'{dif=}, {odds=}, {low_ones=}, {high_ones=}')
-        for i in range(low_ones, high_ones + 1):
-            if i % 2 != 0:
-                odds += 1
-        print(f'{dif=}, {odds=}, {low_ones=}, {high_ones=}')
-        if dif // 10 > 0:
-            odds += (dif // 10) * 5
-        print(f'{dif=}, {odds=}, {low_ones=}, {high_ones=}')
-        return odds
+        if low % 2 == 1 or high % 2 == 1:
+            return (high - low) // 2 + 1
+        else:
+            return (high - low) // 2
 
 
 if __name__ == '__main__':
