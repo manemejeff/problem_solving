@@ -1,0 +1,36 @@
+*TERMINAL*
+ls (list of files)
+pwd (path)
+mkdir {folder_name} (create {}folder)
+rm {name} (remove file/folder)
+touch {file_name} (create {}file)
+
+*PYTHON*
+pip3 list (list installed libs)
+    --local (only current libs not global)
+python3 -m venv {venv_name} (create virtual env with {} name)
+    --system-site-packages (include global site_packages in new venv)
+source {venv_name}/bin/activate (activate venv in {} folder)
+deactivate (deactivate venv)
+which python (which python interpreteur is used)
+pip freeze > {requirements.txt} (save dependencies in {} file)
+pip install -r {requirements.txt} (install dependencies from {} file)
+
+*UNITTEST*
+python -m unittest test_module1 test_module2
+python -m unittest test_module.TestClass
+python -m unittest test_module.TestClass.test_method
+python -m unittest tests/test_something.py
+
+*COVERAGE*
+coverage run [--source={module}] -m unittest
+coverage report -m
+
+*DS*
+conda activate {home/vladimir/DataAnalysis/env} activate {} environment
+jupyter notebook (runs jupyter server)
+
+*DOCKER*
+docker ps (images list)
+docker kill {container_id}
+docker system prune (clear system)
