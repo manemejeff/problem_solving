@@ -3,7 +3,6 @@
 ##Content
 * cheat_sheets
 * code_signal
-* data_science
 * leet
 * mind_maps
 * postgresql_course
