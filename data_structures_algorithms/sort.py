@@ -65,6 +65,46 @@ def merge_sort(my_list: list) -> list:
     return merge(merge_sort(left), merge_sort(right))
 
 
+def swap(my_list, index1, index2):
+    my_list[index1], my_list[index2] = my_list[index2], my_list[index1]
+
+
+def pivot(my_list, pivot_index, end_index):
+    """
+    looping through list and comparing element
+    and moving that element to point
+    where all element that less are on the left side
+    and all elements that greater - on the right side
+    :return:
+    """
+    swap_index = pivot_index
+    for i in range(pivot_index + 1, end_index + 1):
+        if my_list[i] < my_list[pivot_index]:
+            swap_index += 1
+            swap(my_list, swap_index, i)
+    swap(my_list, pivot_index, swap_index)
+    return swap_index
+
+
+def quick_sort_helper(my_list: list, left: int, right: int) -> list:
+    if left < right:
+        pivot_index = pivot(my_list, left, right)
+        quick_sort_helper(my_list, left, pivot_index - 1)
+        quick_sort_helper(my_list, pivot_index + 1, right)
+    return my_list
+
+
+def quick_sort(my_list: list) -> list:
+    """
+    pivot - O(n)
+    quick sort - O(n log n)
+    worst case 0(n**2) on sorted data
+    :param my_list:
+    :return:
+    """
+    return quick_sort_helper(my_list, 0, len(my_list) - 1)
+
+
 if __name__ == '__main__':
     unsorted_list = [5, 16, 1, 12, 2, 3, 8]
-    print(merge_sort(unsorted_list))
+    print(quick_sort(unsorted_list))
